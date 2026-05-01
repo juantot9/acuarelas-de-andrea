@@ -6,10 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-<<<<<<< HEAD
-  adapter: cloudflare()
-});
-=======
+  adapter: cloudflare(),
   site: 'https://acuarelasdeandrea.com',
   image: {
     service: sharpImageService(),
@@ -20,4 +17,3 @@ export default defineConfig({
     }),
   ],
 });
->>>>>>> b74fba4 (fix images and add SEO improvements)
