@@ -31,7 +31,8 @@ const featuredComparison = {
 
 const socialTitle = "Retratos de mascotas en acuarela | Andrea";
 const socialDescription = "Retratos de mascotas en acuarela, pintados a mano por Andrea a partir de tus fotos favoritas.";
-const socialImageUrl = new URL(entranceCatImage.src, Astro.url).toString();
+const siteUrl = "https://acuarelasdeandrea.com/";
+const socialImageUrl = new URL(entranceCatImage.src, siteUrl).toString();
 
 const artworks = [
   {
@@ -68,7 +69,9 @@ const artworks = [
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={socialDescription} />
+    <link rel="canonical" href={siteUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={socialTitle} />
     <meta property="og:description" content={socialDescription} />
     <meta property="og:image" content={socialImageUrl} />
