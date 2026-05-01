@@ -32,7 +32,7 @@ const featuredComparison = {
 const socialTitle = "Retratos de mascotas en acuarela | Andrea";
 const socialDescription = "Retratos de mascotas en acuarela, pintados a mano por Andrea a partir de tus fotos favoritas.";
 const siteUrl = "https://acuarelasdeandrea.com/";
-const socialImageUrl = new URL(entranceCatImage.src, siteUrl).toString();
+const socialImageUrl = new URL('/social-preview.jpg', siteUrl).toString();
 
 const artworks = [
   {
@@ -68,6 +68,7 @@ const artworks = [
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff7ea" />
     <meta name="description" content={socialDescription} />
     <link rel="canonical" href={siteUrl} />
     <meta property="og:type" content="website" />
@@ -75,7 +76,9 @@ const artworks = [
     <meta property="og:title" content={socialTitle} />
     <meta property="og:description" content={socialDescription} />
     <meta property="og:image" content={socialImageUrl} />
-    <meta property="og:image:alt" content="Retrato de mascota en acuarela pintado a mano por Andrea" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Acuarelas de Andrea: retratos personalizados de mascotas pintados a mano" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={socialTitle} />
     <meta name="twitter:description" content={socialDescription} />
@@ -154,7 +157,7 @@ const artworks = [
             <span class="gift-label">Ideal para regalar</span>
             <p class="price-kicker">Acuarela física</p>
             <h3>Original pintado a mano</h3>
-            <p>Cada pieza física es única, pintada a mano en acuarela sobre papel especial de acuarela.</p>
+            <p>Cada pieza física es única, pintada a mano sobre papel especial de acuarela.</p>
             <ul class="price-list">
               <li><span>A5</span><strong>20€</strong></li>
               <li><span>A4</span><strong>30€</strong></li>
