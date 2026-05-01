@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Legal pages are marked noindex in their HTML.

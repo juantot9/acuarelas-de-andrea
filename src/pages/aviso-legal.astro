@@ -1,0 +1,63 @@
+---
+import "@fontsource-variable/fraunces/full.css";
+import "@fontsource/nunito/500.css";
+import "@fontsource/nunito/700.css";
+import "@fontsource/nunito/800.css";
+import "@fontsource/nunito/900.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Aviso legal | Acuarelas de Andrea</title>
+  </head>
+  <body>
+    <main class="legal-page">
+      <a class="back" href="/">← Volver a la web</a>
+      <h1>Aviso legal</h1>
+      <p class="notice">Información legal de la titular de esta web.</p>
+
+      <section>
+        <h2>1. Titularidad</h2>
+        <p>Esta web pertenece a <strong>Andrea Cerros Sánchez</strong>, con NIF/NIE <strong>54036427C</strong> y domicilio a efectos legales en <strong>Calle Eurípides, 51. Valdemoro, Madrid</strong>.</p>
+        <p>Contacto: <a href="mailto:andreacerrossa@gmail.com">andreacerrossa@gmail.com</a>.</p>
+      </section>
+
+      <section>
+        <h2>2. Actividad</h2>
+        <p>La web muestra retratos personalizados de mascotas en acuarela y facilita el contacto para solicitar encargos personalizados.</p>
+      </section>
+
+      <section>
+        <h2>3. Condiciones de los encargos</h2>
+        <p>Los precios indicados son orientativos para los formatos publicados. El precio final puede variar según tamaño, número de mascotas, nivel de detalle o requisitos especiales.</p>
+        <p>Antes de empezar se acuerdan formato, precio, plazos aproximados y envío. El encargo comienza tras la aceptación de las condiciones y el pago previo acordado.</p>
+      </section>
+
+      <section>
+        <h2>4. Envíos</h2>
+        <p>Los envíos no están incluidos en el precio del retrato físico. En España el envío indicado es de 5,80€; los envíos internacionales se calculan según destino.</p>
+      </section>
+
+      <section>
+        <h2>5. Propiedad intelectual</h2>
+        <p>Las imágenes, textos y diseños de esta web pertenecen a su titular o se usan con autorización. No está permitida su reproducción sin permiso.</p>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root { --cream: #fff7ea; --ink: #3e2b20; --muted: #7b604f; --cocoa: #6a3a1f; --orange: #f28c28; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); background: var(--cream); font-family: "Nunito", ui-sans-serif, system-ui, sans-serif; line-height: 1.7; }
+  .legal-page { width: min(760px, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0 4rem; }
+  .back { color: var(--cocoa); font-weight: 900; text-decoration: none; }
+  h1, h2 { font-family: "Fraunces", Georgia, serif; line-height: 1.05; }
+  h1 { font-size: clamp(2.4rem, 10vw, 4.5rem); }
+  h2 { margin-top: 2rem; }
+  a { color: var(--cocoa); }
+  .notice { border: 1px solid rgba(242, 140, 40, 0.28); border-radius: 1rem; padding: 1rem; background: rgba(255, 253, 248, 0.78); color: var(--muted); font-weight: 900; }
+</style>

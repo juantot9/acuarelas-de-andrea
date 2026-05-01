@@ -1,0 +1,1299 @@
+---
+import { Image } from "astro:assets";
+import "@fontsource-variable/fraunces/full.css";
+import "@fontsource/nunito/500.css";
+import "@fontsource/nunito/700.css";
+import "@fontsource/nunito/800.css";
+import "@fontsource/nunito/900.css";
+import entranceCatImage from "../assets/artworks/entrance-cat.jpg";
+import buffyImage from "../assets/artworks/BUFFY.jpg";
+import liaImage from "../assets/artworks/LIA.jpg";
+import luckyImage from "../assets/artworks/LUCKY.jpg";
+import rocoImage from "../assets/artworks/ROCO.jpg";
+import selvaImage from "../assets/artworks/SELVA.jpg";
+import zeusWatercolorImage from "../assets/artworks/ZEUS-ACUARELA.jpg";
+import zeusRealImage from "../assets/artworks/ZEUS-REAL.jpg";
+
+const artist = {
+  name: "Andrea",
+  instagram: "https://instagram.com/solly_doo",
+  email: "andreacerrossa@gmail.com",
+  whatsapp: "https://wa.me/34658575235",
+};
+
+const featuredComparison = {
+  pet: "Zeus",
+  original: zeusRealImage,
+  painting: zeusWatercolorImage,
+  altOriginal: "Foto original de Zeus usada como referencia para el retrato",
+  altPainting: "Retrato personalizado de Zeus pintado en acuarela",
+};
+
+const socialTitle = "Retratos de mascotas en acuarela | Andrea";
+const socialDescription = "Retratos de mascotas en acuarela, pintados a mano por Andrea a partir de tus fotos favoritas.";
+const socialImageUrl = new URL(entranceCatImage.src, Astro.url).toString();
+
+const artworks = [
+  {
+    pet: "Buffy",
+    kind: "Retrato en acuarela",
+    image: buffyImage,
+    alt: "Retrato personalizado de Buffy pintado en acuarela",
+  },
+  {
+    pet: "Lía",
+    kind: "Retrato en acuarela",
+    image: liaImage,
+    alt: "Retrato personalizado de Lía pintado en acuarela",
+  },
+  {
+    pet: "Lucky",
+    kind: "Retrato en acuarela",
+    image: luckyImage,
+    alt: "Retrato personalizado de Lucky pintado en acuarela",
+  },
+  {
+    pet: "Selva",
+    kind: "Retrato en acuarela",
+    image: selvaImage,
+    alt: "Retrato personalizado de Selva pintado en acuarela",
+  },
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={socialDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={socialDescription} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:alt" content="Retrato de mascota en acuarela pintado a mano por Andrea" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={socialDescription} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{socialTitle}</title>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navegación principal">
+      <a class="logo" href="#top" aria-label="Inicio de Retratos de mascotas en acuarela">
+        <span class="logo-mark">✦</span>
+        Acuarelas de Andrea
+      </a>
+      <nav>
+        <a href="#formats">Precios</a>
+        <a href="#gallery">Galería</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad">
+        <div class="hero-copy">
+          <p class="eyebrow">Retratos en acuarela</p>
+          <h1>Pinto a tu mascota con todo el cariño que se merece.</h1>
+          <p class="hero-text">
+            A partir de una foto, creo un retrato único en acuarela: sencillo, cálido y hecho a mano.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#gallery">Ver la galería</a>
+            <a class="button secondary" href={artist.instagram}>Encargar por Instagram</a>
+          </div>
+
+          <div class="hero-studio-note" aria-label="Detalle artístico">
+            <figure class="hero-artwork">
+              <Image src={entranceCatImage} alt="Retrato de un gato en acuarela pintado a mano por Andrea" loading="eager" />
+              <figcaption>Un pedacito de mi mundo en acuarela.</figcaption>
+            </figure>
+            <div>
+              <p class="digital-badge">¡También en digital!</p>
+              <p>Me fijo en la mirada, los gestos y esos detalles que los hacen únicos.</p>
+            </div>
+          </div>
+        </div>
+
+        <article class="hero-card" aria-label="Retrato destacado antes y después">
+          <div class="compare" data-compare>
+            <Image src={featuredComparison.painting} alt={featuredComparison.altPainting} loading="lazy" />
+            <div class="compare-after" style="--position: 55%">
+              <Image src={featuredComparison.original} alt={featuredComparison.altOriginal} loading="lazy" />
+            </div>
+            <input type="range" min="0" max="100" value="55" aria-label="Comparar foto y acuarela" />
+            <span class="compare-hint">Arrastra para comparar</span>
+            <span class="compare-label left">Foto</span>
+            <span class="compare-label right">Acuarela</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="intro section-pad compact">
+        <p>
+          Cada retrato nace de una foto especial y acaba siendo un recuerdo para guardar cerca.
+        </p>
+      </section>
+
+      <section id="formats" class="section-pad formats-section">
+        <div class="section-heading">
+          <p class="eyebrow">Formatos y precios</p>
+          <h2>Elige cómo quieres guardar su retrato.</h2>
+        </div>
+
+        <div class="price-grid">
+          <article class="price-card featured-price physical-price">
+            <span class="deal-badge">Precio especial</span>
+            <span class="gift-label">Ideal para regalar</span>
+            <p class="price-kicker">Acuarela física</p>
+            <h3>Original pintado a mano</h3>
+            <p>Cada pieza física es única, pintada a mano en acuarela sobre papel especial de acuarela.</p>
+            <ul class="price-list">
+              <li><span>A5</span><strong>20€</strong></li>
+              <li><span>A4</span><strong>30€</strong></li>
+              <li><span>A3</span><strong>40€</strong></li>
+            </ul>
+          </article>
+          <article class="price-card digital-price">
+            <span class="deal-badge">Precio especial</span>
+            <p class="price-kicker">Digital</p>
+            <h3>Retrato digital</h3>
+            <p class="price"><span>Desde</span> 30€</p>
+            <p>Perfecto para imprimir a tu gusto, compartir o usar como regalo rápido y especial.</p>
+          </article>
+          <article class="price-card soft-note">
+            <p class="price-kicker">Envíos</p>
+            <h3>A casa, con cariño</h3>
+            <p>En España el envío son 5,80€ aparte. También hago envíos internacionales, calculados según destino.</p>
+          </article>
+        </div>
+        <p class="pricing-note">El precio puede variar si el encargo tiene más detalle, varias mascotas o una idea especial. Lo hablamos antes de empezar.</p>
+        <div class="pricing-actions">
+          <a class="button primary" href={artist.instagram}>Encargar por Instagram</a>
+        </div>
+      </section>
+
+      <section id="gallery" class="section-pad gallery-section">
+        <div class="section-heading">
+          <p class="eyebrow">Galería</p>
+          <h2>Algunos retratos.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          {artworks.map((artwork) => (
+            <article class="gallery-card">
+              <Image class="artwork-image" src={artwork.image} alt={artwork.alt} loading="lazy" />
+              <div class="card-copy">
+                <h3>{artwork.pet}</h3>
+                <p>{artwork.kind}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section-pad photo-tips-section">
+        <div class="section-heading">
+          <p class="eyebrow">Para que quede precioso</p>
+          <h2>Qué foto necesito.</h2>
+        </div>
+        <div class="tips-grid">
+          <article class="tip-card">
+            <span>☀</span>
+            <h3>Buena luz</h3>
+            <p>Mejor con luz natural y sin sombras muy fuertes sobre la cara.</p>
+          </article>
+          <article class="tip-card">
+            <span>👀</span>
+            <h3>Mirada visible</h3>
+            <p>Que se vean bien los ojos, el hocico y esos gestos tan suyos.</p>
+          </article>
+          <article class="tip-card">
+            <span>✦</span>
+            <h3>Sin filtros</h3>
+            <p>Si puedes, envíame la foto original para respetar colores y detalles.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="process" class="section-pad process">
+        <div class="section-heading">
+          <p class="eyebrow">Cómo funciona</p>
+          <h2>Encargar uno es muy fácil.</h2>
+        </div>
+        <div class="process-content">
+          <Image class="process-image" src={rocoImage} alt="Retrato personalizado de Roco pintado en acuarela" loading="lazy" />
+          <div class="steps">
+            <article>
+              <span>01</span>
+              <h3>Envíame una foto</h3>
+              <p>Escríbeme por redes con una imagen clara y cuéntame qué formato quieres.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Acordamos los detalles</h3>
+              <p>Confirmamos tamaño, precio y pago previo antes de empezar.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Te voy enseñando el proceso</h3>
+              <p>Lo preparo con calma en aproximadamente una semana, más el tiempo de envío si es físico.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad about">
+        <div>
+          <p class="eyebrow">Sobre mí</p>
+          <h2>Hola, soy Andrea.</h2>
+        </div>
+        <p>
+          Pinto mascotas en acuarela porque me encanta capturar lo que las hace únicas:
+          una mirada, una postura, una expresión. Cada retrato lo hago con cariño y a mi ritmo.
+        </p>
+      </section>
+
+      <section id="faq" class="section-pad faq-section">
+        <div class="section-heading">
+          <p class="eyebrow">Dudas rápidas</p>
+          <h2>Antes de encargar.</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>¿Qué foto necesito enviar?</summary>
+            <p>Una foto donde se vea bien la carita, la mirada y los colores de tu mascota. Si tienes varias, mejor: así puedo elegir la que más ayuda al retrato.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tarda?</summary>
+            <p>Normalmente alrededor de una semana, dependiendo de la demanda. Si es acuarela física, suma el tiempo de entrega.</p>
+          </details>
+          <details>
+            <summary>¿Cómo se reserva?</summary>
+            <p>Me escribes por redes, acordamos formato y detalles, y el encargo se reserva con pago previo.</p>
+          </details>
+          <details>
+            <summary>¿Puedo pedir algo especial?</summary>
+            <p>Sí. Puede variar el precio si hay varias mascotas, mucho detalle o una composición más personalizada, pero siempre lo hablamos antes.</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="contact" class="section-pad contact">
+        <p class="eyebrow">Encargos abiertos</p>
+        <h2>¿Te gustaría encargar uno?</h2>
+        <p>Escríbeme por Instagram con la palabra “retrato” y una foto de tu mascota. Te cuento disponibilidad, tamaños y detalles.</p>
+        <div class="trust-strip" aria-label="Información de confianza para encargos">
+          <span>Acordamos todo antes de empezar</span>
+          <span>Pago previo con precio cerrado</span>
+          <span>Te enseño avances del proceso</span>
+        </div>
+        <div class="contact-links">
+          <a class="button primary" href={artist.instagram}>Instagram</a>
+          <a class="button secondary" href={`mailto:${artist.email}`}>Correo</a>
+          <a class="button secondary" href={artist.whatsapp}>WhatsApp</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} {artist.name}. Retratos de mascotas en acuarela.</p>
+      <p class="legal-links">
+        <a href="/aviso-legal/">Aviso legal</a>
+        <span aria-hidden="true">·</span>
+        <a href="/privacidad/">Privacidad</a>
+      </p>
+    </footer>
+
+    <a class="mobile-cta" href={artist.instagram} aria-label="Encargar un retrato por Instagram">
+      Encargar por Instagram
+    </a>
+
+    <script>
+      document.querySelectorAll('[data-compare]').forEach((compare) => {
+        const after = compare.querySelector('.compare-after');
+        const input = compare.querySelector('input[type="range"]');
+        if (!(after instanceof HTMLElement) || !(input instanceof HTMLInputElement)) return;
+
+        const update = () => {
+          after.style.setProperty('--position', `${input.value}%`);
+          compare.style.setProperty('--position', `${input.value}%`);
+        };
+
+        input.addEventListener('input', update);
+        update();
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #432716;
+    --muted: #8a6048;
+    --cream: #fff4e6;
+    --paper: #fffaf2;
+    --orange: #f28c28;
+    --soft-orange: #ffd1a3;
+    --clay: #c9652b;
+    --apricot: #ffb36b;
+    --marigold: #ffbf4d;
+    --cocoa: #6a3a1f;
+    --shadow: 0 24px 70px rgba(171, 91, 31, 0.16);
+    --deep-shadow: 0 34px 90px rgba(112, 58, 22, 0.22);
+    font-family: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--cream);
+  }
+
+  body {
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 8% 4%, rgba(242, 140, 40, 0.36), transparent 28rem),
+      radial-gradient(circle at 85% 12%, rgba(255, 179, 107, 0.32), transparent 22rem),
+      radial-gradient(circle at 15% 82%, rgba(255, 191, 77, 0.20), transparent 24rem),
+      linear-gradient(115deg, rgba(255, 250, 242, 0.82), rgba(255, 244, 230, 0.92)),
+      var(--cream);
+    line-height: 1.6;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.34;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: auto -7rem 7rem auto;
+    z-index: -1;
+    width: 22rem;
+    height: 22rem;
+    border-radius: 43% 57% 52% 48%;
+    background: rgba(242, 140, 40, 0.11);
+    filter: blur(2px);
+    pointer-events: none;
+  }
+
+  a { color: inherit; }
+
+  .site-header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(1120px, calc(100% - 1rem));
+    margin: 0.5rem auto 0;
+    gap: 1rem;
+    padding: 0.75rem clamp(0.85rem, 3vw, 1.25rem);
+    border-radius: 999px;
+    backdrop-filter: blur(18px);
+    background: rgba(255, 250, 242, 0.78);
+    border: 1px solid rgba(201, 101, 43, 0.14);
+    box-shadow: 0 14px 44px rgba(171, 91, 31, 0.10);
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--cocoa);
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .logo-mark { color: var(--orange); }
+
+  nav {
+    display: none;
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+
+  nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 800;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.3rem;
+    height: 0.16rem;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-radius: 999px;
+    background: var(--orange);
+    transition: transform 180ms ease;
+  }
+
+  nav a:hover::after { transform: scaleX(1); }
+
+  .section-pad {
+    width: min(1120px, calc(100% - 2rem));
+    margin-inline: auto;
+    padding-block: clamp(3.25rem, 8vw, 6.5rem);
+  }
+
+  .compact { padding-block: 0 1.4rem; }
+
+  .gallery-section { padding-top: 1.8rem; }
+
+  .hero {
+    position: relative;
+    display: grid;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+    padding-top: clamp(3.25rem, 7vw, 5.5rem);
+    padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .hero::before {
+    content: "acuarela · mascotas · recuerdos";
+    position: absolute;
+    top: 1.1rem;
+    right: 0;
+    color: rgba(106, 58, 31, 0.08);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(2rem, 8vw, 5.5rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    pointer-events: none;
+  }
+
+  .hero-copy {
+    position: relative;
+  }
+
+  .hero-copy::before {
+    content: "";
+    position: absolute;
+    top: -1.8rem;
+    right: 1rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 56% 44% 65% 35%;
+    background: rgba(242, 140, 40, 0.16);
+    filter: blur(1px);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--clay);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p { margin-top: 0; }
+
+  h1,
+  h2 {
+    max-width: 12ch;
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "SOFT" 95, "WONK" 1;
+    font-weight: 850;
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+  }
+
+  h1 {
+    position: relative;
+    font-size: clamp(2.9rem, 13vw, 6.9rem);
+  }
+
+  h1::after {
+    content: "";
+    position: absolute;
+    left: 0.08em;
+    bottom: -0.09em;
+    width: min(7.4em, 92vw);
+    height: 0.18em;
+    border-radius: 999px 48% 999px 42%;
+    background: linear-gradient(90deg, rgba(242, 140, 40, 0.38), rgba(255, 191, 77, 0.04));
+    z-index: -1;
+  }
+
+  h2 { font-size: clamp(2.05rem, 8vw, 4.5rem); }
+  h3 { margin-bottom: 0.25rem; font-size: 1.15rem; }
+
+  .hero-text,
+  .intro p,
+  .contact p,
+  .about p {
+    color: var(--muted);
+    font-size: clamp(1.05rem, 3.5vw, 1.3rem);
+  }
+
+  .hero-text {
+    max-width: 34rem;
+    margin-bottom: 0;
+  }
+
+  .hero-studio-note {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: center;
+    max-width: 25rem;
+    margin-top: 1.6rem;
+    padding: 0.8rem;
+    border: 1px solid rgba(201, 101, 43, 0.12);
+    border-radius: 1.8rem;
+    background: rgba(255, 250, 242, 0.58);
+    box-shadow: 0 18px 44px rgba(171, 91, 31, 0.12);
+  }
+
+  .hero-studio-note::before {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    bottom: -0.55rem;
+    width: 7rem;
+    height: 1.4rem;
+    transform: rotate(-3deg);
+    border-radius: 999px 40% 999px 45%;
+    background: rgba(242, 140, 40, 0.18);
+  }
+
+  .hero-studio-note p {
+    position: relative;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .hero-studio-note .digital-badge {
+    display: inline-flex;
+    margin-bottom: 0.45rem;
+    border-radius: 999px;
+    padding: 0.28rem 0.62rem;
+    color: #fffaf2;
+    background: var(--orange);
+    box-shadow: 0 10px 22px rgba(171, 91, 31, 0.20);
+    font-size: 0.78rem;
+    font-weight: 900;
+  }
+
+  .hero-artwork {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0.45rem;
+    transform: rotate(-2deg);
+    border-radius: 1.25rem;
+    background: rgba(255, 250, 242, 0.82);
+    box-shadow: 0 16px 34px rgba(171, 91, 31, 0.16);
+  }
+
+  .hero-artwork::after {
+    content: "✦";
+    position: absolute;
+    right: -0.75rem;
+    top: -0.9rem;
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #fffaf2;
+    background: var(--orange);
+    box-shadow: 0 10px 24px rgba(171, 91, 31, 0.22);
+    font-size: 0.95rem;
+  }
+
+  .hero-artwork img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
+  .hero-artwork figcaption {
+    margin-top: 0.45rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .hero-actions,
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.35rem;
+  }
+
+  .button {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.75rem 1.15rem;
+    font-weight: 900;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary {
+    color: #fffdf8;
+    background: linear-gradient(135deg, var(--cocoa), #8c471d 58%, var(--orange));
+    box-shadow: 0 14px 32px rgba(171, 91, 31, 0.26);
+  }
+
+  .primary:hover { box-shadow: 0 18px 42px rgba(171, 91, 31, 0.32); }
+
+  .secondary {
+    color: var(--ink);
+    background: rgba(255, 253, 248, 0.78);
+    border: 1px solid rgba(201, 101, 43, 0.16);
+  }
+
+  .mobile-cta {
+    position: fixed;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 20;
+    display: inline-flex;
+    min-height: 3.15rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.8rem 1.15rem;
+    color: #fffdf8;
+    background: linear-gradient(135deg, var(--cocoa), #8c471d 58%, var(--orange));
+    box-shadow: 0 16px 38px rgba(112, 58, 22, 0.32);
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .hero-card,
+  .gallery-card,
+  .steps article,
+  .about,
+  .contact {
+    background:
+      linear-gradient(145deg, rgba(255, 253, 248, 0.88), rgba(255, 245, 232, 0.72));
+    border: 1px solid rgba(201, 101, 43, 0.12);
+    box-shadow: var(--shadow);
+  }
+
+  .hero-card,
+  .gallery-card { border-radius: 2rem; overflow: hidden; }
+
+  .hero-card {
+    position: relative;
+    padding: 0.55rem;
+    transform: rotate(1.2deg);
+    background: rgba(255, 250, 242, 0.88);
+    box-shadow: var(--deep-shadow);
+  }
+
+  .hero-card::before {
+    content: "Zeus";
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    transform: rotate(-6deg);
+    border: 1px solid rgba(201, 101, 43, 0.24);
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    color: var(--clay);
+    background: rgba(255, 250, 242, 0.82);
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 850;
+    box-shadow: 0 10px 24px rgba(171, 91, 31, 0.12);
+  }
+
+  .hero-card .compare { border-radius: 1.55rem; }
+
+  .gallery-card {
+    position: relative;
+    width: min(100%, 320px);
+    justify-self: center;
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+
+  .gallery-card::before {
+    content: "";
+    position: absolute;
+    top: -0.55rem;
+    left: 50%;
+    z-index: 1;
+    width: 4.8rem;
+    height: 1.25rem;
+    transform: translateX(-50%) rotate(-2deg);
+    border-radius: 0.18rem;
+    background: rgba(255, 207, 143, 0.62);
+    box-shadow: 0 3px 10px rgba(106, 58, 31, 0.10);
+  }
+
+  .gallery-card:nth-child(even)::before { transform: translateX(-50%) rotate(3deg); }
+
+  .gallery-card:hover {
+    transform: translateY(-5px) rotate(-0.7deg);
+    box-shadow: var(--deep-shadow);
+  }
+
+  .compare {
+    --position: 50%;
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    background: #f6d3af;
+    touch-action: pan-y;
+  }
+
+  .compare::selection { background: transparent; }
+
+  .compare.small { min-height: 330px; }
+
+  .compare::before,
+  .compare::after {
+    position: absolute;
+    left: var(--position);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .compare::before {
+    content: "";
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    transform: translateX(-50%);
+    background: rgba(255, 253, 248, 0.95);
+    box-shadow: 0 0 18px rgba(70, 54, 45, 0.24);
+  }
+
+  .compare::after {
+    content: "↔";
+    top: 50%;
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    color: var(--ink);
+    background: var(--paper);
+    box-shadow: 0 8px 24px rgba(70, 54, 45, 0.28);
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+
+  .compare img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+  }
+
+  .artwork-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    object-fit: cover;
+    background: #f6d3af;
+    filter: saturate(0.98) contrast(0.98);
+    transition: transform 260ms ease, filter 260ms ease;
+  }
+
+  .gallery-card:hover .artwork-image {
+    transform: scale(1.025);
+    filter: saturate(1.05) contrast(1.02);
+  }
+
+  .compare-after {
+    position: absolute;
+    inset: 0;
+    width: var(--position);
+    overflow: hidden;
+  }
+
+  .compare input {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: ew-resize;
+  }
+
+  .compare-hint,
+  .compare-label {
+    position: absolute;
+    bottom: 1rem;
+    z-index: 1;
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    color: var(--ink);
+    background: rgba(255, 253, 248, 0.82);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .compare-hint {
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    color: var(--ink);
+    background: rgba(255, 253, 248, 0.88);
+    box-shadow: 0 8px 24px rgba(70, 54, 45, 0.16);
+    font-size: 0.82rem;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .compare-label.left { left: 1rem; }
+  .compare-label.right { right: 1rem; }
+
+  @media (max-width: 719px) {
+    .compare-hint {
+      bottom: 3.3rem;
+    }
+  }
+
+  .intro p {
+    max-width: 720px;
+    margin-bottom: 0;
+    padding-left: 1rem;
+    border-left: 0.3rem solid rgba(242, 140, 40, 0.38);
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "SOFT" 90, "WONK" 1;
+  }
+
+  .section-heading {
+    position: relative;
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: clamp(1.6rem, 4vw, 2.4rem);
+  }
+
+  .section-heading::after {
+    content: "";
+    width: 7rem;
+    height: 0.35rem;
+    border-radius: 999px 40% 999px 50%;
+    background: linear-gradient(90deg, var(--orange), rgba(255, 191, 77, 0));
+  }
+
+  .gallery-grid,
+  .price-grid,
+  .tips-grid,
+  .faq-list,
+  .steps,
+  .process-content {
+    display: grid;
+    gap: clamp(1.1rem, 3vw, 1.7rem);
+  }
+
+  .gallery-grid { row-gap: 2.1rem; }
+
+  .price-card,
+  .tip-card,
+  .faq-list details {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+    background: rgba(255, 253, 248, 0.76);
+    border: 1px solid rgba(201, 101, 43, 0.14);
+    box-shadow: 0 18px 44px rgba(171, 91, 31, 0.10);
+  }
+
+  .featured-price {
+    background:
+      radial-gradient(circle at 18% 12%, rgba(255, 191, 77, 0.28), transparent 9rem),
+      linear-gradient(145deg, rgba(106, 58, 31, 0.98), rgba(140, 71, 29, 0.94));
+    color: #fffdf8;
+    box-shadow: 0 28px 70px rgba(106, 58, 31, 0.24);
+  }
+
+  .digital-price {
+    background: rgba(255, 250, 242, 0.72);
+  }
+
+  .deal-badge {
+    position: absolute;
+    right: -2.3rem;
+    top: 1rem;
+    transform: rotate(12deg);
+    border-radius: 999px;
+    padding: 0.45rem 2.4rem;
+    color: #fffdf8;
+    background: var(--orange);
+    box-shadow: 0 10px 24px rgba(171, 91, 31, 0.22);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .gift-label {
+    display: inline-flex;
+    margin-bottom: 0.85rem;
+    border: 1px solid rgba(255, 253, 248, 0.28);
+    border-radius: 999px;
+    padding: 0.38rem 0.72rem;
+    color: #fffdf8;
+    background: rgba(255, 253, 248, 0.12);
+    font-size: 0.78rem;
+    font-weight: 900;
+  }
+
+  .price-kicker {
+    margin: 0 0 0.35rem;
+    color: var(--orange);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .featured-price .price-kicker,
+  .featured-price p { color: rgba(255, 253, 248, 0.82); }
+
+  .featured-price .price-list li {
+    border-bottom-color: rgba(255, 253, 248, 0.24);
+  }
+
+  .featured-price .price-list strong {
+    color: var(--cocoa);
+    background: #fffdf8;
+    box-shadow: 0 10px 22px rgba(35, 22, 15, 0.18);
+  }
+
+  .price {
+    margin: 0.2rem 0 0.7rem;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(2.4rem, 12vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .price span {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: "Nunito", ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .price-list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .price-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(106, 58, 31, 0.20);
+    padding-bottom: 0.6rem;
+    font-weight: 900;
+  }
+
+  .price-list strong {
+    border-radius: 999px;
+    padding: 0.28rem 0.72rem;
+    color: #fffdf8;
+    background: var(--cocoa);
+    box-shadow: 0 8px 18px rgba(106, 58, 31, 0.16);
+  }
+
+  .pricing-note {
+    max-width: 740px;
+    margin: 1.2rem 0 0;
+    color: var(--muted);
+    font-weight: 800;
+  }
+
+  .pricing-actions {
+    display: flex;
+    margin-top: 1.15rem;
+  }
+
+  .tip-card span {
+    display: inline-grid;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-bottom: 0.75rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #fffdf8;
+    background: var(--orange);
+    box-shadow: 0 10px 22px rgba(171, 91, 31, 0.18);
+    font-weight: 900;
+  }
+
+  .tip-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+  }
+
+  .faq-list details {
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  }
+
+  .faq-list details[open] {
+    transform: translateY(-2px);
+    background: rgba(255, 253, 248, 0.92);
+    box-shadow: 0 22px 54px rgba(171, 91, 31, 0.14);
+  }
+
+  .faq-list summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    color: var(--cocoa);
+    font-weight: 900;
+    list-style: none;
+  }
+
+  .faq-list summary::-webkit-details-marker { display: none; }
+
+  .faq-list summary::after {
+    content: "+";
+    display: grid;
+    flex: 0 0 auto;
+    width: 1.8rem;
+    height: 1.8rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #fffdf8;
+    background: var(--orange);
+    box-shadow: 0 8px 18px rgba(171, 91, 31, 0.16);
+    transition: transform 180ms ease;
+  }
+
+  .faq-list details[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-list p {
+    margin-bottom: 0;
+    padding-top: 0.85rem;
+    color: var(--muted);
+  }
+
+  .process-content { align-items: start; }
+
+  .process-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    border: 0.55rem solid rgba(255, 250, 242, 0.86);
+    border-radius: 1.5rem;
+    object-fit: cover;
+    box-shadow: var(--deep-shadow);
+  }
+
+  .card-copy { padding: 1rem 1.1rem 1.2rem; }
+  .card-copy p, .steps p { margin-bottom: 0; color: var(--muted); }
+
+  .steps article {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    padding: 1.2rem;
+  }
+
+  .steps article::after {
+    content: "";
+    position: absolute;
+    right: -2.8rem;
+    bottom: -2.8rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: rgba(242, 140, 40, 0.10);
+  }
+
+  .steps span {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    color: var(--orange);
+    font-weight: 900;
+  }
+
+  .about,
+  .contact {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    padding: clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .about::after,
+  .contact::after {
+    content: "✧";
+    position: absolute;
+    right: clamp(1rem, 4vw, 2.5rem);
+    top: clamp(1rem, 4vw, 2.25rem);
+    color: rgba(242, 140, 40, 0.22);
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 1;
+  }
+
+  .about {
+    display: grid;
+    gap: 1.3rem;
+  }
+
+  .contact {
+    text-align: center;
+  }
+
+  .contact h2 { margin-inline: auto; }
+  .contact p { max-width: 620px; margin-inline: auto; }
+
+  .trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+    margin: 1.25rem auto 0;
+    max-width: 760px;
+  }
+
+  .trust-strip span {
+    border: 1px solid rgba(201, 101, 43, 0.16);
+    border-radius: 999px;
+    padding: 0.48rem 0.78rem;
+    color: var(--cocoa);
+    background: rgba(255, 253, 248, 0.68);
+    font-size: 0.82rem;
+    font-weight: 900;
+  }
+
+  .contact-links { justify-content: center; }
+
+  footer {
+    padding: 2rem 1rem calc(5.5rem + env(safe-area-inset-bottom));
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .legal-links {
+    display: inline-flex;
+    gap: 0.55rem;
+    justify-content: center;
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  .legal-links a { color: var(--cocoa); }
+
+  @media (min-width: 720px) {
+    footer { padding: 2rem 1rem; }
+
+    .mobile-cta { display: none; }
+
+    .compact { padding-block: 0 3.8rem; }
+
+    .gallery-section { padding-top: clamp(3.25rem, 8vw, 6.5rem); }
+
+    .site-header {
+      position: sticky;
+      top: 0.5rem;
+    }
+
+    nav { display: flex; }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr);
+      min-height: calc(100svh - 4.5rem);
+    }
+
+    .hero-studio-note {
+      max-width: 28rem;
+      margin: 2.2rem auto 0;
+    }
+
+    .price-grid,
+    .tips-grid,
+    .gallery-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      justify-content: center;
+    }
+
+    .physical-price {
+      grid-column: span 2;
+      padding: 1.55rem;
+    }
+
+    .gallery-card {
+      width: auto;
+      justify-self: stretch;
+    }
+
+    .gallery-card:last-child:nth-child(3n + 1) {
+      grid-column: 2;
+    }
+
+    .gallery-card:nth-last-child(2):nth-child(3n + 1) {
+      grid-column: 1 / 2;
+    }
+
+    .gallery-card:last-child:nth-child(3n + 2) {
+      grid-column: 3 / 4;
+    }
+    .process-content { grid-template-columns: 0.72fr 1fr; align-items: center; }
+    .steps { grid-template-columns: 1fr; gap: 1rem; }
+    .faq-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .about { grid-template-columns: 1fr 0.85fr; align-items: end; }
+  }
+</style>
